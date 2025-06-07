@@ -31,7 +31,7 @@ export default buildConfig({
     url: process.env.DATABASE_URI || '',
   }),
   sharp,
-  cors: ['http://localhost:5173'], 
+  cors: ['http://localhost:5173', 'https://bydzapchastuz.vercel.app'], 
   plugins: [
     payloadCloudPlugin(),
     // storage-adapter-placeholder
