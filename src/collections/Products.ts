@@ -34,7 +34,6 @@ const Products: CollectionConfig = {
     {
       name: 'ProductCode',
       type: 'number',
-      required: true,
     },
     {
       name: 'mainImage',

@@ -163,7 +163,7 @@ export interface Product {
   title: string;
   description?: string | null;
   price: number;
-  ProductCode: number;
+  ProductCode?: number | null;
   mainImage: string | Media;
   additionalImages?:
     | {
