@@ -1,4 +1,9 @@
-import type { CollectionConfig } from 'payload'
+import type { CollectionConfig, Access } from 'payload'
+
+const canUpdateRole: Access = ({ req }) => {
+  const { user } = req
+  return !!(user && user.role === 'admin')
+}
 
 export const Users: CollectionConfig = {
   slug: 'users',
@@ -23,7 +28,7 @@ export const Users: CollectionConfig = {
         },
       ],
       access: {
-        update: ({ req: { user } }) => user && user.role === 'admin',
+        update: canUpdateRole,
       },
     },
   ],
