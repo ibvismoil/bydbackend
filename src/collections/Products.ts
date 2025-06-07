@@ -1,7 +1,8 @@
-import { CollectionConfig } from 'payload';
+import type { CollectionConfig, Access } from 'payload';
 
-const isAdmin = ({ req: { user } }) => {
-  return user && user.role === 'admin';
+const isAdmin: Access = ({ req }) => {
+  const { user } = req;
+  return !!(user && user.role === 'admin');
 };
 
 const Products: CollectionConfig = {

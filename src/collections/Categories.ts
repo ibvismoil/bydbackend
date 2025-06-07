@@ -1,16 +1,17 @@
-import { CollectionConfig } from 'payload'
+import type { CollectionConfig, Access } from 'payload'
 
-const isAdmin = ({ req: { user } }) => {
-  return user && user.role === 'admin'
+const isAdmin: Access = ({ req }) => {
+  const { user } = req
+  return !!(user && user.role === 'admin')
 }
 
 const Categories: CollectionConfig = {
   slug: 'categories',
   access: {
-    read: () => true,   // Все могут читать
-    create: isAdmin,    // Только админ может создавать
-    update: isAdmin,    // Только админ может редактировать
-    delete: isAdmin,    // Только админ может удалять
+    read: () => true,   
+    create: isAdmin,    
+    update: isAdmin,    
+    delete: isAdmin,    
   },
   admin: {
     useAsTitle: 'title',

@@ -1,16 +1,17 @@
-import type { CollectionConfig } from 'payload'
+import type { CollectionConfig, Access } from 'payload'
 
-const isAdmin = ({ req: { user } }) => {
-  return user && user.role === 'admin'
+const isAdmin: Access = ({ req }) => {
+  const { user } = req
+  return !!(user && user.role === 'admin')
 }
 
 export const Media: CollectionConfig = {
   slug: 'media',
   access: {
-    read: () => true,    // Все могут видеть изображения
-    create: isAdmin,     // Только админ может загружать
-    update: isAdmin,     // Только админ может редактировать
-    delete: isAdmin,     // Только админ может удалять
+    read: () => true,    
+    create: isAdmin,    
+    update: isAdmin,     
+    delete: isAdmin,    
   },
   upload: true,
   fields: [
