@@ -32,6 +32,11 @@ const Products: CollectionConfig = {
       required: true,
     },
     {
+      name: 'ProductCode',
+      type: 'number',
+      required: true,
+    },
+    {
       name: 'mainImage',
       type: 'upload',
       relationTo: 'media',

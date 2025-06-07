@@ -163,6 +163,7 @@ export interface Product {
   title: string;
   description?: string | null;
   price: number;
+  ProductCode: number;
   mainImage: string | Media;
   additionalImages?:
     | {
@@ -292,6 +293,7 @@ export interface ProductsSelect<T extends boolean = true> {
   title?: T;
   description?: T;
   price?: T;
+  ProductCode?: T;
   mainImage?: T;
   additionalImages?:
     | T
